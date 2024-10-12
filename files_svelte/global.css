@@ -1,0 +1,277 @@
+.get-started-input-fields {
+	background-color: inherit;
+	background: inherit;
+	color: var(--ghost);
+	font-weight: 600;
+	width: 100%;
+	min-height: 35px;
+	padding: 0px 7px;
+	border: 1px solid var(--semi-white);
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+  }
+  
+  .get-started-input-fields::placeholder {
+	color: var(--ghost);
+	font-weight: 600;
+  }
+  
+  .get-started-input-fields:focus {
+	outline: none !important;
+	outline-style: none !important;
+	color: var(--ghost);
+	font-weight: 600;
+	border: 2px solid var(--semi-white);
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	transition: 0.1s;
+	-webkit-transition: 0.1s;
+	-moz-transition: 0.1s;
+	-ms-transition: 0.1s;
+	-o-transition: 0.1s;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+  }
+
+  .borderless-input {
+	border: 0px;
+	font-style: italic;
+	font-weight: 700;
+  }
+
+  .borderless-input::placeholder {
+	font-style: italic;
+	font-weight: 700;
+  }
+
+  .hidden-display {
+	display: none;
+  }
+
+  .text-button {
+	border: none;
+	background-color: inherit;
+	font-size: 16px;
+	cursor: pointer;
+	display: inline-block;
+	color: dodgerblue;
+	min-width: 100px;
+	height: 30px;
+  }
+
+  .text-button:hover {
+	background-color: ghostwhite;
+	color: black !important;
+  }
+
+.settings-navigation {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 0 !important;
+}
+
+.settings-navigation a {
+	text-decoration: none;
+	color: var(--semi-white);
+	display: block;
+	height: 40px;
+	padding: 10px;
+}
+
+.settings-navigation a.active-link {
+	border-bottom: 2px solid var(--gold);
+}
+
+.settings-navigation a:hover {
+	background: var(--orange-red);
+}
+
+.settings-content-container {
+	min-height: 40% !important;
+}
+
+.colu {
+    width: 100%;
+}
+
+.colu-1 {
+    width: 8.33%;
+}
+
+.colu-2 {
+    width: 16.66%;
+}
+
+.colu-3 {
+    width: 24.99%;
+}
+
+.colu-4 {
+    width: 33.32%;
+}
+
+.colu-5 {
+    width: 41.65%;
+}
+
+.colu-6 {
+    width: 49.98%;
+}
+
+.colu-7 {
+    width: 58.31%;
+}
+
+.colu-8 {
+    width: 66.64%;
+}
+
+.colu-9 {
+    width: 74.97%;
+}
+
+.colu-10 {
+    width: 83.3%;
+}
+
+.colu-11 {
+    width: 91.63%;
+}
+
+.colu-12 {
+    width: 99.96%;
+}
+
+@media screen and (min-width: 481px) {
+    .colu-m-1 {
+        width: 8.33%;
+    }
+    .colu-m-2 {
+        width: 16.66%;
+    }
+    .colu-m-3 {
+        width: 24.99%;
+    }
+    .colu-m-4 {
+        width: 33.32%;
+    }
+    .colu-m-5 {
+        width: 41.65%;
+    }
+    .colu-m-6 {
+        width: 49.98%;
+    }
+    .colu-m-7 {
+        width: 58.31%;
+    }
+    .colu-m-8 {
+        width: 66.64%;
+    }
+    .colu-m-9 {
+        width: 74.97%;
+    }
+    .colu-m-10 {
+        width: 83.3%;
+    }
+    .colu-m-11 {
+        width: 91.63%;
+    }
+    .colu-m-12 {
+        width: 99.96%;
+    }
+}
+
+@media screen and (max-width: 768px){
+	.settings-navigation {
+		text-align: center;
+	}
+
+	.settings-navigation li, a {
+		display: inline-block;
+	}
+}
+
+@media screen and (min-width: 769px) {
+    .colu-l-1 {
+        width: 8.33%;
+    }
+    .colu-l-2 {
+        width: 16.66%;
+    }
+    .colu-l-3 {
+        width: 24.99%;
+    }
+    .colu-l-4 {
+        width: 33.32%;
+    }
+    .colu-l-5 {
+        width: 41.65%;
+    }
+    .colu-l-6 {
+        width: 49.98%;
+    }
+    .colu-l-7 {
+        width: 58.31%;
+    }
+    .colu-l-8 {
+        width: 66.64%;
+    }
+    .colu-l-9 {
+        width: 74.97%;
+    }
+    .colu-l-10 {
+        width: 83.3%;
+    }
+    .colu-l-11 {
+        width: 91.63%;
+    }
+    .colu-l-12 {
+        width: 99.96%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .colu-xl-1 {
+        width: 8.33%;
+    }
+    .colu-xl-2 {
+        width: 16.66%;
+    }
+    .colu-xl-3 {
+        width: 24.99%;
+    }
+    .colu-xl-4 {
+        width: 33.32%;
+    }
+    .colu-xl-5 {
+        width: 41.65%;
+    }
+    .colu-xl-6 {
+        width: 49.98%;
+    }
+    .colu-xl-7 {
+        width: 58.31%;
+    }
+    .colu-xl-8 {
+        width: 66.64%;
+    }
+    .colu-xl-9 {
+        width: 74.97%;
+    }
+    .colu-xl-10 {
+        width: 83.3%;
+    }
+    .colu-xl-11 {
+        width: 91.63%;
+    }
+    .colu-xl-12 {
+        width: 99.96%;
+    }
+}

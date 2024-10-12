@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" style="height:100%;">
+    <%- include ('reuseables/header.ejs'); %>
+    <body class="background-color" style="height: 100%;">
+        <main style="width: 100%;height: 100%;">
+            <div class="d-flex justify-content-center align-items-center" style="width: 100%;height: 100%;">
+                <div class="colu colu-m-8 colu-l-3 py-5" style="min-height: 250px;padding-top: 10px;background-color: var(--grey);">
+                    <div style="text-align: center;"><a href="/"><img src="/img/logo.jpg" style="max-height: 50px; max-width: 50px;"></a></div>
+                    <div class="text-center mt-2" style="min-height: 20px;"><span class="fw-bolder text-light fs-3">Reset Password</span></div>
+                    <form class="text-center content" id="reset" method="post" style="margin-top: 20px;">
+                        <div class="mb-3 mx-3"><input id="password" class="form-control get-started-input-fields" type="password" name="password" placeholder="Password" required></div>
+                        <div class="mb-3 mx-3"><input id="confirm_password" class="form-control get-started-input-fields" type="password" name="confirm_password" placeholder="Confirm Password" required></div>
+                        <div class="mb-3 mx-5">
+                            <button id="reset_button" class="btn btn-primary d-block w-100" type="submit" style="background: var(--orange-red);border-style: none;border-radius: 20px;">
+                                <span id="login_spinner" class="spinner-grow spinner-grow-sm d-none" role="status" aria-hidden="true"></span> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <script>
+            var password = document.getElementById("password")
+            var confirm_password = document.getElementById("confirm_password");
+
+            function validatePassword(){
+                if(password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+        </script>
+        <%- include ('reuseables/footer.ejs'); %>
+    </body>
+
+</html>

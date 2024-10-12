@@ -1,0 +1,52 @@
+:root {
+  --background: #000000;
+  --footer-background: rgb(41, 44, 47);
+  --grey: rgb(21, 21, 21);
+  --semi-white: #DBDBDB;
+  --white: #FFFFFF;
+  --orange-red: #FF4500;
+  --gold: #DAA520;
+  --ghost: #F8F8FF;
+  --accompanist-rotation: 12deg;
+}
+
+.text-style-info {
+  color: var(--orange-red)!important;
+}
+
+.nav-background {
+  background-color: var(--grey);
+  background: var(--grey);
+}
+
+.background-color {
+  background-color: var(--background);
+  background: var(--background);
+}
+
+.content-color {
+  background-color: var(--grey);
+  background: var(--grey);
+  color: var(--ghost);
+}
+
+.footer {
+  background-color: var(--footer-background);
+  background: var(--footer-background);
+}
+
+.card-color {
+  background-color: var(--footer-background);
+  background: var(--footer-background);
+  color: var(--ghost);
+}
+
+.hover-plan:hover {
+  cursor: pointer !important;
+  border-width: 2px;
+  transition: 0.12s;
+  -webkit-transition: 0.12s;
+  -moz-transition: 0.12s;
+  -ms-transition: 0.12s;
+  -o-transition: 0.12s;
+}

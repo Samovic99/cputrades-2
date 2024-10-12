@@ -1,0 +1,26 @@
+.thumb-lg {
+  height: 88px;
+  width: 88px;
+}
+
+.card {
+  border: none;
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.05);
+}
+
+.m-b-30 {
+  margin-bottom: 30px;
+}
+
+.social-links li a {
+  -webkit-border-radius: 50%;
+  background: #fcfdfd;
+  border-radius: 50%;
+  color: #9f9f9f;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  width: 30px;
+}
+

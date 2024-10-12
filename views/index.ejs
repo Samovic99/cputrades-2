@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+<!-- Header -->
+<%- include ('reuseables/header.ejs'); %>
+
+  <body class="background-color">
+    <%- include ('reuseables/navigation.ejs'); %>
+      <!-- Navigation -->
+      <section class="mt-2 mb-4"
+        style="background: url(&quot;assets/img/background-1.webp&quot;) bottom right / contain no-repeat;">
+        <div class="container content-padding">
+          <div class="row content-padding">
+            <div class="col-md-6">
+              <h3 class="text-start mb-2" style="color: var(--bs-light-bg-subtle);"><strong>The Leading Investment
+                  Platform</strong></h1>
+                <p style="font-size: 14px;color: var(--semi-white);">Experience seamless online trading with our
+                  platform. Access global markets, trade a variety of assets, and make informed decisions with real-time
+                  data and expert insights. Elevate your investment journey with us.</p>
+                <div style="padding: 0;"><a class="btn btn-primary button-general button-general-border" role="button"
+                    style="width: 120px;border-radius: 20px;" href="/about">About Us</a><a
+                    class="btn btn-primary button-general" role="button"
+                    style="margin: 0px 15px;width: 120px;border-radius: 20px;" href="/register">Get Started</a></div>
+            </div>
+            <div class="col-md-6 hide-container">
+              <figure class="figure rotate-accompanist-column" style="position: relative; left: 0; top: -30px;">
+                <div style="position: absolute; left: 0; z-index: -1;"><svg width="400" height="350"
+                    viewBox="0 0 480 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M451.782 151.186C315.957 -68.3415 63.8795 -44.7693 56.2305 198.753C55.2477 230.043 52.4633 260.414 48.6277 289.646C22.6119 487.915 -51.7652 633.742 59.6493 658.134C187.49 686.122 587.608 370.714 451.782 151.186Z"
+                      fill="#FF4500"></path>
+                  </svg></div><img class="img-fluid figure-img" src="/img/phone-model-v3.png"
+                  style="max-height: 400px;position: relative;left: 50px;">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mt-5">
+        <div class="container">
+          <h5 class="mb-3" style="color: var(--ghost);">MARKETS</h5>
+          <h1 class="mb-3" style="color: var(--white);">CPU Trades is a world of choice</h1>
+          <p style="color: var(--semi-white);">CPU Trades offers the freedom to invest in listed stocks and trade CFDs
+            on stocks, commodities, forex, crypto and more. Our intuitive platform makes it easy for you to navigate the
+            markets.</p>
+          <div class="my-4 navigationbar"><a class="btn start-trading" role="button" href="/faq">Got Questions?</a>
+          </div>
+        </div>
+        <div class="my-5 container" style="height: 500px;">
+          <div id="#custom-code" style="height: 100%;">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                  {
+                    "colorTheme"; "dark",
+                      "backgroundColor"; "#151515",
+                        "dateRange"; "12M",
+                          "showChart"; false,
+                            "locale"; "en",
+                              "width"; "100%",
+                                "height"; "100%",
+                                  "largeChartUrl"; "",
+                                    "isTransparent"; false,
+                                      "showSymbolLogo"; true,
+                                        "showFloatingTooltip"; false,
+                                          "tabs";[
+                                            {
+                                              "title": "Crypto",
+                                              "symbols": [
+                                                {
+                                                  "s": "CRYPTO:BTCUSD",
+                                                  "d": "BITCOIN"
+                                                },
+                                                {
+                                                  "s": "CRYPTO:ETHUSD",
+                                                  "d": "ETHEREUM"
+                                                },
+                                                {
+                                                  "s": "CRYPTOCAP:USDT",
+                                                  "d": "USDT"
+                                                },
+                                                {
+                                                  "s": "CRYPTO:BNBUSD",
+                                                  "d": "BNB"
+                                                },
+                                                {
+                                                  "s": "CRYPTO:SOLUSD",
+                                                  "d": "SOLANA"
+                                                },
+                                                {
+                                                  "s": "CRYPTO:XRPUSD",
+                                                  "d": "RIPPLE"
+                                                },
+                                                {
+                                                  "s": "CRYPTO:DOGEUSD",
+                                                  "d": "DOGECOIN"
+                                                },
+                                                {
+                                                  "s": "CRYPTO:LTCUSD",
+                                                  "d": "LITECOIN"
+                                                },
+                                                {
+                                                  "s": "CRYPTO:MATICUSD",
+                                                  "d": "POLYGON"
+                                                },
+                                                {
+                                                  "s": "BINANCE:TRXUSD.P",
+                                                  "d": "TRON"
+                                                },
+                                                {
+                                                  "s": "CRYPTO:DOTUSD",
+                                                  "d": "POLKADOT"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "title": "Commodities",
+                                              "symbols": [
+                                                {
+                                                  "s": "COMEX:GC1!",
+                                                  "d": "Gold"
+                                                },
+                                                {
+                                                  "s": "NYMEX:CL1!",
+                                                  "d": "WTI Crude Oil"
+                                                },
+                                                {
+                                                  "s": "CBOT:ZC1!",
+                                                  "d": "Corn"
+                                                },
+                                                {
+                                                  "s": "COMEX:LED1!",
+                                                  "d": "LEAD"
+                                                },
+                                                {
+                                                  "s": "COMEX:ZNC1!",
+                                                  "d": "ZINC"
+                                                },
+                                                {
+                                                  "s": "ACTIVTRADES:GASOLU2024",
+                                                  "d": "GASOLINE"
+                                                },
+                                                {
+                                                  "s": "CBOT:ZW1!",
+                                                  "d": "WHEAT"
+                                                },
+                                                {
+                                                  "s": "COMEX:HG1!",
+                                                  "d": "COPPER"
+                                                },
+                                                {
+                                                  "s": "COMEX:SI1!",
+                                                  "d": "SILVER"
+                                                },
+                                                {
+                                                  "s": "CBOT:ZL1!",
+                                                  "d": "SOYBEANS"
+                                                },
+                                                {
+                                                  "s": "OSE:NK2251!",
+                                                  "d": "NIKKEI"
+                                                }
+                                              ],
+                                              "originalTitle": "Futures"
+                                            },
+                                            {
+                                              "title": "Forex",
+                                              "symbols": [
+                                                {
+                                                  "s": "FX:EURUSD",
+                                                  "d": "EUR to USD"
+                                                },
+                                                {
+                                                  "s": "FX:GBPUSD",
+                                                  "d": "GBP to USD"
+                                                },
+                                                {
+                                                  "s": "FX:USDJPY",
+                                                  "d": "USD to JPY"
+                                                },
+                                                {
+                                                  "s": "FX:USDCHF",
+                                                  "d": "USD to CHF"
+                                                },
+                                                {
+                                                  "s": "FX:AUDUSD",
+                                                  "d": "AUD to USD"
+                                                },
+                                                {
+                                                  "s": "FX:USDCAD",
+                                                  "d": "USD to CAD"
+                                                },
+                                                {
+                                                  "s": "FX:EURJPY"
+                                                },
+                                                {
+                                                  "s": "FX:EURCAD"
+                                                },
+                                                {
+                                                  "s": "FX:EURAUD"
+                                                },
+                                                {
+                                                  "s": "FOREXCOM:GBPCHF"
+                                                }
+                                              ],
+                                              "originalTitle": "Forex"
+                                            },
+                                            {
+                                              "title": "Stocks",
+                                              "symbols": [
+                                                {
+                                                  "s": "NASDAQ:TSLA",
+                                                  "d": "TESLA"
+                                                },
+                                                {
+                                                  "s": "NASDAQ:NVDA",
+                                                  "d": "NVIDIA"
+                                                },
+                                                {
+                                                  "s": "NASDAQ:AAPL",
+                                                  "d": "APPLE"
+                                                },
+                                                {
+                                                  "s": "NASDAQ:AMZN",
+                                                  "d": "AMAZON"
+                                                },
+                                                {
+                                                  "s": "NYSE:BABA",
+                                                  "d": "ALI BABA"
+                                                },
+                                                {
+                                                  "s": "NASDAQ:MSFT"
+                                                },
+                                                {
+                                                  "s": "NASDAQ:META"
+                                                },
+                                                {
+                                                  "s": "NASDAQ:COIN"
+                                                },
+                                                {
+                                                  "s": "NASDAQ:GOOGL"
+                                                },
+                                                {
+                                                  "s": "NASDAQ:NFLX"
+                                                },
+                                                {
+                                                  "s": "NYSE:MCD",
+                                                  "d": "MAC DONALDS"
+                                                },
+                                                {
+                                                  "s": "NYSE:KO",
+                                                  "d": "COCA COLA"
+                                                },
+                                                {
+                                                  "s": "NYSE:BAC"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                  }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+        </div>
+      </section>
+      <section
+        style="margin-top: 20px;width: 100%;background: url(&quot;assets/img/background-6.webp&quot;) bottom left / contain no-repeat;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6"><!-- <div style="width: 100%; max-height: 400px;"></div> -->
+              <figure class="figure"><img class="img-fluid figure-img" src="/img/trade.svg"></figure>
+            </div>
+            <div class="col-md-6 align-content-center">
+              <h1 class="center-align-text" style="color: var(--white);"><strong>Why choose Us?</strong></h1>
+              <h6 style="color: var(--semi-white);">CPU Trades aims to be one of the most compliant investment platforms
+                in the world. We take a regulation-first approach and have some of the most intensive security
+                processes, according to an April 2023 ranking by CCData.<br><br>We vet all cryptocurrencies and new
+                features against CPU Trades internal due diligence standards before making them available, and provide
+                straightforward information to help you understand the risks so you can build and execute an investment
+                strategy that’s right for you.</h6>
+              <div class="navigationbar"><a class="btn start-trading" role="button" href="/about"
+                  style="width: 150px;margin-top: 7px;">Learn More</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="packages">
+        <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
+        <section class="mt-5 price_plan_area section_padding_130_80" id="pricing">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12 col-sm-8 col-lg-6">
+                <!-- Section Heading-->
+                <div class="section-heading text-center wow fadeInUp" data-wow-delay="0.2s"
+                  style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                  <!-- <h6>Pricing Plans</h6> -->
+                  <h1 style="color: var(--white);">Let's find a way</h1>
+                  <p style="color: var(--ghost);">Take a look at the plans we offer. This is what sets us apart from
+                    other platforms.</p>
+                  <div class="line"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <!-- Single Price Plan Area-->
+              <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="single_price_plan wow fadeInUp" data-wow-delay="0.2s"
+                  style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                  <div class="title">
+                    <h3>Starter Plan</h3>
+                    <p>Our starter plan</p>
+                    <div class="line"></div>
+                  </div>
+                  <div class="price">
+                    <h4>$5000</h4>
+                  </div>
+                  <div class="description">
+                    <p><i class="lni lni-checkmark-circle"></i>Duration: 7days</p>
+                    <p><i class="lni lni-checkmark-circle"></i>Crypto and Forex only</p>
+                    <p><i class="lni lni-checkmark-circle"></i>No Hidden Fees</p>
+                    <!-- <p><i class="lni lni-close"></i>100+ Video Tuts</p> -->
+                    <p><i class="lni lni-close"></i>No Tools</p>
+                  </div>
+                  <div class="button"><a class="btn btn-success btn-2" href="/dashboard">Get Started</a></div>
+                </div>
+              </div>
+              <!-- Single Price Plan Area-->
+              <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="single_price_plan active wow fadeInUp" data-wow-delay="0.2s"
+                  style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                  <!-- Side Shape-->
+                  <div class="side-shape"><img src="https://bootdey.com/img/popular-pricing.png" alt=""></div>
+                  <div class="title"><span>Popular</span>
+                    <h3>Plus Plan</h3>
+                    <p>Enhanced Features For Growing Needs</p>
+                    <div class="line"></div>
+                  </div>
+                  <div class="price">
+                    <h4>$10,000</h4>
+                  </div>
+                  <div class="description">
+                    <p><i class="lni lni-checkmark-circle"></i>Duration: 3 Month</p>
+                    <p><i class="lni lni-checkmark-circle"></i>Crypto, Commodities and Forex only</p>
+                    <p><i class="lni lni-checkmark-circle"></i>No Hidden Fees</p>
+                    <p><i class="lni lni-close"></i>5 Tools</p>
+                  </div>
+                  <div class="button"><a class="btn btn-warning" href="/dashboard">Get Started</a></div>
+                </div>
+              </div>
+              <!-- Single Price Plan Area-->
+              <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="single_price_plan wow fadeInUp" data-wow-delay="0.2s"
+                  style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                  <div class="title">
+                    <h3>Compound Plan</h3>
+                    <p>Unlimited Possibilities</p>
+                    <div class="line"></div>
+                  </div>
+                  <div class="price">
+                    <h4>$15,000</h4>
+                  </div>
+                  <div class="description">
+                    <p><i class="lni lni-checkmark-circle"></i>Duration: 6 months</p>
+                    <p><i class="lni lni-checkmark-circle"></i>All listed assets</p>
+                    <p><i class="lni lni-checkmark-circle"></i>No Hidden Fees</p>
+                    <!-- <p><i class="lni lni-checkmark-circle"></i>Unlimited Video Tuts</p> -->
+                    <p><i class="lni lni-checkmark-circle"></i>Unlimited Tools</p>
+                  </div>
+                  <div class="button"><a class="btn btn-info" href="/dashboard">Get Started</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section class="my-5"
+        style="background: url(&quot;assets/img/background-3.webp&quot;) top right / contain no-repeat;">
+        <div class="container">
+          <div class="row flex-wrap-reverse" style="margin-top: 20px;">
+            <div class="col-md-6">
+              <h5 style="color: var(--semi-white);">Help</h5>
+              <h1 style="color: var(--white);font-weight: bold;">Frequently Asked Questions</h1>
+              <div class="accordion" role="tablist" id="accordion-1">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true"
+                      aria-controls="accordion-1 .item-1">Who can invest in CPU Trades?</button></h2>
+                  <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                    <div class="accordion-body">
+                      <p class="mb-0">Any one could become an investor with us. We offer good packages coupled<br> with
+                        high return of investments to make sure that our customers all <br>over the world are happy.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false"
+                      aria-controls="accordion-1 .item-2">What stocks are available?</button></h2>
+                  <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
+                    <div class="accordion-body">
+                      <p class="mb-0">Invest in listed US stocks, or trade a selection of&nbsp;top stocks from the US,
+                        UK, Hong Kong, Australia, and multiple European exchanges on leverage</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false"
+                      aria-controls="accordion-1 .item-3">How long does withdrawals take?</button></h2>
+                  <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
+                    <div class="accordion-body">
+                      <p class="mb-0">Withdrawals usually take upto 24hrs to process, please note that despite<br>
+                        submitting withdrawal request, the funds will keep reflecting on your <br>dashboard until the
+                        withdrawal is done processing.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-4" aria-expanded="false"
+                      aria-controls="accordion-1 .item-4">How long till I get a response from customers'
+                      support?</button></h2>
+                  <div class="accordion-collapse collapse item-4" role="tabpanel" data-bs-parent="#accordion-1">
+                    <div class="accordion-body">
+                      <p class="mb-0">If you run into any problem, endeavor to get in touch quickly. We have standby
+                        customer care agents always willing to help.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center sd-margin-vertical" style="max-height: 450px;"><video
+                autoplay="" loop="" muted="" style="max-height: 350px;">
+                <source src="/video/vid2.webm" type="video/webm">
+              </video></div>
+          </div>
+        </div>
+      </section>
+      <section class="my-5">
+        <div class="container mt-5">
+          <h5 class="mb-3" style="color: var(--ghost);">TRUST AND TRANSPARENCY</h5>
+          <h1 class="mb-3" style="color: var(--white);">Regulations and Licences</h1>
+          <p style="color: var(--semi-white);">At CPU Trades, we ensure customer's protection. We ensure that our
+            products and services reach adequate, safety and quality standard. We have financial regulations that
+            prevent insider trading and ensure transparency in financial markets </p>
+          <div class="my-4 d-flex justify-content-start">
+            <div class="regulation-container">
+              <img src="/img/regulation-fca.svg" alt="">
+              <h6 class="mt-3">Regulated by <b>UK FCA</b></h5>
+                <a class="mt-3" target="_blank"
+                  href="https://find-and-update.company-information.service.gov.uk/company/11078501">Learn More ></a>
+            </div>
+            <div class="regulation-container">
+              <img src="/img/regulation-FIRNA.svg" alt="">
+              <h6 class="mt-3">Regulated by <b>FINRA</b></h5>
+                <a class="mt-3" target="_blank" href="https://www.sec.gov/edgar/browse/?CIK=0001877071">Learn More ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <%- include ('reuseables/footer.ejs'); %>
+  </body>
+
+</html>
