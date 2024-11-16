@@ -1,50 +1,46 @@
 const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 const path = require('path');
-const { google } = require("googleapis");
 
+// Email addresses
+const emailAddress = 'noreply@cputrades.com'; // Replace with your verified Postmark "From" email
+const adminEmailAddress = 'cputrades@gmail.com'; // Optional, for notifications
 
-const OAuth2 = google.auth.OAuth2;
-
-const emailAddress = 'noreply@cputrades.com'
-const adminEmailAddress = 'cputrades@gmail.com'
-
-const hostname = 'cputrades.com';
-
-const oauth2Client = new OAuth2(
-    "553298682404-epqbut9fh0ln0hhqhohvvllub732ntlq.apps.googleusercontent.com", // ClientID
-    "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", // Client Secret
-    "https://developers.google.com/oauthplayground" // Redirect URL
-);
-
-oauth2Client.setCredentials({
-    refresh_token: "1//04s4duJaxIaiLCgYIARAAGAQSNwF-L9Ir3_u6kTnVYy2J3EgX0Q_HA-v5SGGaedv97GqtP8uJnc_tUPSrKFxPM1aO6sDeU4ZRv_s"
-});
-const accessToken = oauth2Client.getAccessToken()
-
-// create reusable transporter object using the default SMTP transport
+// Postmark SMTP Transport
 let transporter = nodemailer.createTransport({
-    name: 'www.cputrades.com',
-    host: 'smtp.gmail.com',
-    //port: 587,
-    //secure: false,
-    port: 465,
-    secure: true, // true for 465, false for other ports
-    tls: { 
-        ciphers: 'SSLv3',
-        // rejectUnauthorized: false
-    },
-    service: "gmail",
+    host: 'smtp.postmarkapp.com', // Postmark SMTP server
+    port: 587, // SMTP port
+    secure: false, // Use TLS
     auth: {
-        type: "OAuth2",
-        user: 'info@cputrades.com',
-        clientId: "553298682404-epqbut9fh0ln0hhqhohvvllub732ntlq.apps.googleusercontent.com",
-        clientSecret: "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",
-        refreshToken: "1//04s4duJaxIaiLCgYIARAAGAQSNwF-L9Ir3_u6kTnVYy2J3EgX0Q_HA-v5SGGaedv97GqtP8uJnc_tUPSrKFxPM1aO6sDeU4ZRv_s",
-        accessToken: accessToken
-        // pass: 'Bernice@100'
+        user: process.env.POSTMARK_API_TOKEN, // Use your Postmark API token
+        pass: process.env.POSTMARK_API_TOKEN, // Use the same Postmark API token
     },
 });
+
+// Function to send an email
+const sendEmail = async (to, subject, templateData) => {
+    try {
+        // Render EJS template if applicable
+        const htmlContent = await ejs.renderFile(
+            path.join(__dirname, 'templates', 'email-template.ejs'), 
+            templateData
+        );
+
+        // Send the email
+        const info = await transporter.sendMail({
+            from: emailAddress, // Sender address (must be verified in Postmark)
+            to: to, // Recipient(s)
+            subject: subject, // Email subject
+            html: htmlContent, // Email body (HTML)
+        });
+
+        console.log('Email sent:', info.messageId);
+    } catch (error) {
+        console.error('Error sending email:', error);
+    }
+};
+
+module.exports = { sendEmail };
 
 transporter.set("oauth2_provision_cb", (user, renew, callback) => {
     let accessToken = userTokens[user];

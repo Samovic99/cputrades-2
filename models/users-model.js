@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { isEmail } = require('validator');
 const dayjs = require('dayjs');
 const {user_verification_status} = require("../utility/app-utility");

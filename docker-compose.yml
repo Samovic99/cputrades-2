@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  app:
+    build: .  # Build from the current directory (contains Dockerfile)
+    container_name: node-app
+    ports:
+      - "80:3000"  # Expose container's port 3000 to host port 80
+    env_file:
+      - .env
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/your-db
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - mongo
+      - redis
+    restart: always
+    volumes:
+      - .:/app  # Mount the entire project folder into the container
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:4.4
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+    networks:
+      - app-network
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: always
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+  redis-data:
+
+networks:
+  app-network:
+    driver: bridge

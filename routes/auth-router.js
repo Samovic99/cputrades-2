@@ -1,54 +1,64 @@
-const { Router } = require('express');
-const authController = require('../controllers/auth-controller');
-const { protectRoutes, redirectToDashboard } = require('../middlewares/confirmations');
+const express = require('express');
+const axios = require('axios');
 const multer = require('multer');
-const path = require('path'); 
+const path = require('path');
+const router = express.Router();
 
-const routes = Router();
+// Import the middlewares and controllers
+const { protectRoutes, checkUsersDetails, redirectToDashboard } = require('../middlewares/confirmations');  
+const { 
+    get_dashboard, get_history, get_deposit, get_withdrawal, get_profile, get_basic_details, 
+    get_settings, get_purchase_plan, get_verification, get_logout, get_reset_password 
+} = require('../controllers/auth-controller');  // Ensure correct imports for the get functions
+const { 
+    post_signup, post_login, post_reset_password, post_send_reset_password_mail, 
+    post_deposit, post_withdrawal, post_purchase_plan, post_verification, 
+    post_update_settings, post_update_email, post_profile_picture, verify_email, verify_otp
+} = require('../controllers/auth-controller');  // Ensure correct imports for the post functions
+
+// Multer file upload configuration
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        if (req.path.includes("/profile-picture")) {
-            cb(null, path.resolve('assets/img/pictures'))
-        } else {
-            cb(null, path.resolve('uploads'));
-        }
+    destination: (req, file, cb) => {
+        const dest = req.path.includes("/profile-picture") 
+            ? 'assets/img/pictures' 
+            : 'uploads';
+        cb(null, path.resolve(dest));
     },
-    filename: function(req, file, cb) {
+    filename: (req, file, cb) => {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
         cb(null, uniqueSuffix + '-' + file.originalname);
     }
 });
-
 const upload = multer({ storage });
 
-routes.get('/dashboard', protectRoutes, authController.get_dashboard);
-routes.get('/transactions', protectRoutes, authController.get_history);
-routes.get('/deposit/:method?/:amount?', protectRoutes, authController.get_deposit);
-routes.get('/withdraw', protectRoutes, authController.get_withdrawal);
+// Route Definitions with middlewares
+router.get('/dashboard', protectRoutes, checkUsersDetails, get_dashboard);  
+router.get('/transactions', protectRoutes, checkUsersDetails, get_history);  
+router.get('/deposit/:method?/:amount?', protectRoutes, checkUsersDetails, get_deposit);  
+router.get('/withdraw', protectRoutes, checkUsersDetails, get_withdrawal);
 
-routes.get('/profile', protectRoutes, authController.get_profile);
-routes.get('/basic-details', protectRoutes, authController.get_basic_details);
-routes.get('/settings', protectRoutes, authController.get_settings);
-routes.get('/purchase-plan', protectRoutes, authController.get_purchase_plan);
-routes.get('/verification', protectRoutes, authController.get_verification);
-routes.get('/logout', authController.get_logout);
+router.get('/profile', protectRoutes, checkUsersDetails, get_profile);  
+router.get('/basic-details', protectRoutes, checkUsersDetails, get_basic_details);  
+router.get('/settings', protectRoutes, checkUsersDetails, get_settings);  
+router.get('/purchase-plan', protectRoutes, checkUsersDetails, get_purchase_plan);  
+router.get('/verification', protectRoutes, checkUsersDetails, get_verification);  
+router.get('/logout', get_logout);  // No need to protect logout route
 
-routes.get('/reset-password/:token/:id', authController.get_reset_password);
+router.get('/reset-password/:token/:id', get_reset_password);
 
-routes.post('/signup', authController.post_signup);
-routes.post('/validate', authController.verify_email);
-routes.post('/verify-otp', authController.verify_otp);
-routes.post('/login', authController.post_login);
-routes.post('/contact', authController.post_contact);
-routes.post('/user-contact', protectRoutes, authController.post_user_contact);
-routes.post('/reset-password/:token/:id', authController.post_reset_password);
-routes.post('/reset-password-mail', authController.post_send_reset_password_mail);
-routes.post('/deposit', protectRoutes, upload.single('file'), authController.post_deposit);
-routes.post('/withdraw', protectRoutes, authController.post_withdrawal);
-routes.post('/purchase-plan', protectRoutes, authController.post_purchase_plan);
-routes.post('/verify', protectRoutes, upload.array('file', 2), authController.post_verification);
-routes.post('/update-settings', protectRoutes, authController.post_update_settings);
-routes.post('/update-email', protectRoutes, authController.post_update_email);
-routes.post('/profile-picture', protectRoutes, upload.single('file'), authController.post_profile_picture)
+// POST Routes
+router.post('/signup', post_signup);
+router.post('/validate', verify_email);  // Now verify_email is correctly imported
+router.post('/verify-otp', verify_otp);  // Now verify_otp is correctly imported
+router.post('/login', redirectToDashboard, post_login);  
+router.post('/reset-password/:token/:id', post_reset_password);
+router.post('/reset-password-mail', post_send_reset_password_mail);
+router.post('/deposit', protectRoutes, checkUsersDetails, upload.single('file'), post_deposit);  
+router.post('/withdraw', protectRoutes, checkUsersDetails, post_withdrawal);  
+router.post('/purchase-plan', protectRoutes, checkUsersDetails, post_purchase_plan);  
+router.post('/verify', protectRoutes, checkUsersDetails, upload.array('file', 2), post_verification);  
+router.post('/update-settings', protectRoutes, checkUsersDetails, post_update_settings);  
+router.post('/update-email', protectRoutes, checkUsersDetails, post_update_email);  
+router.post('/profile-picture', protectRoutes, checkUsersDetails, upload.single('file'), post_profile_picture);  
 
-module.exports = routes;
+module.exports = router;

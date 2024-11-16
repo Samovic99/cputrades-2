@@ -1,20 +1,23 @@
 {
   "name": "cpu-trades",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shiggy cpu trades",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Miracle Nnaoma",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "currency-converter-lt": "^2.0.1",
     "dayjs": "^1.11.12",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "express-session": "^1.18.0",
     "googleapis": "^144.0.0",
     "jsonwebtoken": "^9.0.2",

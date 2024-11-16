@@ -1,3 +1,4 @@
+// middleware/confirmations.js
 const jwt = require('jsonwebtoken');
 const { jwt_secret } = require('../controllers/auth-controller');
 const usersModel = require("../models/users-model");
@@ -19,7 +20,7 @@ const protectRoutes = (req, res, next) => {
 const checkUsersDetails = (req, res, next) => {
     let cookies = req.cookies;
     if (cookies != null) {
-        jwt.verify(cookies.token, jwt_secret, async(error, decodedToken) => {
+        jwt.verify(cookies.token, jwt_secret, async (error, decodedToken) => {
             if (error) {
                 next();
             } else {
@@ -42,7 +43,7 @@ const checkUsersDetails = (req, res, next) => {
 const redirectToDashboard = (req, res, next) => {
     let cookies = req.cookies;
     if (cookies != null) {
-        jwt.verify(cookies.token, jwt_secret, async(error, decodedToken) => {
+        jwt.verify(cookies.token, jwt_secret, async (error, decodedToken) => {
             if (error) {
                 next();
             } else {
@@ -55,4 +56,4 @@ const redirectToDashboard = (req, res, next) => {
     } else { next(); }
 }
 
-module.exports = { protectRoutes, checkUsersDetails, redirectToDashboard }
+module.exports = { protectRoutes, checkUsersDetails, redirectToDashboard };
