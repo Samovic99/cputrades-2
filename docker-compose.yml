@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   app:
-    build: .  # Build from the current directory (contains Dockerfile)
+    build: .  # Builds from the Dockerfile in the current directory
     container_name: node-app
     ports:
       - "80:3000"  # Expose container's port 3000 to host port 80
     env_file:
-      - .env
+      - .env  # Load environment variables from .env file
     environment:
       - MONGO_URL=mongodb://mongo:27017/your-db
       - REDIS_URL=redis://redis:6379
@@ -16,17 +16,18 @@ services:
       - redis
     restart: always
     volumes:
-      - .:/app  # Mount the entire project folder into the container
+      - .:/app  # Mounts the current project directory to /app inside the container
     networks:
       - app-network
+    command: ["npm", "start"]  # Ensures npm start is run after the container is built
 
   mongo:
     image: mongo:4.4
     container_name: mongo
     ports:
-      - "27017:27017"
+      - "27017:27017"  # Exposes MongoDB port to the host
     volumes:
-      - mongo-data:/data/db
+      - mongo-data:/data/db  # Persist MongoDB data
     restart: always
     networks:
       - app-network
@@ -35,9 +36,9 @@ services:
     image: redis:latest
     container_name: redis
     ports:
-      - "6379:6379"
+      - "6379:6379"  # Exposes Redis port to the host
     volumes:
-      - redis-data:/data
+      - redis-data:/data  # Persist Redis data
     restart: always
     networks:
       - app-network
